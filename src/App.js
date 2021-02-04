@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { loadGames } from "./actions/gamesAction";
+import { useDispatch } from "react-redux";
+import { Route } from "react-router-dom";
+
+//Components and Pages
+import Home from "./pages/Home";
+import GlobalStyles from "./components/GlobalStyle";
+import Nav from "./components/Nav";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Nav />
+      <GlobalStyles />
+      <Route path={["/game/:id", "/"]} exact component={Home} />
     </div>
   );
 }
